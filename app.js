@@ -16,5 +16,29 @@ function getHumanChoice() {
     alert("I'll choose for you then...");
     humanChoice = Math.floor(Math.random() * 3);
   }
+
   return choices[humanChoice];
 }
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    console.log(`You Tied! ${humanChoice} = ${humanChoice}`);
+  } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    computerScore++;
+  } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    computerScore++;
+  } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    computerScore++;
+  } else {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+    humanScore++;
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
