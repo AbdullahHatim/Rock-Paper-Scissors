@@ -1,6 +1,6 @@
 const choices = ["Rock", "Paper", "Scissors"];
-let humanScore = 0;
-let computerScore = 0;
+let computerScore;
+let humanScore;
 
 function getComputerChoice() {
   let randomChoice = Math.floor(Math.random() * 3);
@@ -38,7 +38,27 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+  computerScore = 0;
+  humanScore = 0;
+  let humanSelection;
+  let computerSelection;
+  let message;
 
-playRound(humanSelection, computerSelection);
+  for (let i = 0; i < 5; i++) {
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  }
+
+  if (humanScore > computerScore) {
+    message = `You Wins! with a score of ${humanScore} to ${computerScore}`;
+  } else if (humanScore < computerScore) {
+    message = `You Lose. with a score of ${computerScore} to ${humanScore}`;
+  } else {
+    message = `Its a Tie!! with a score of ${computerScore} to ${humanScore}`;
+  }
+  console.log(message);
+}
+
+playGame();
