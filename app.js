@@ -23,19 +23,20 @@ function getHumanChoice() {
 function playRound(event, computerChoice) {
   if (event.target.tagName == "BUTTON") {
     humanChoice = event.target.getAttribute("data-selection");
+    const resultDiv = document.querySelector("div.result");
     if (humanChoice === computerChoice) {
-      console.log(`You Tied! ${humanChoice} = ${humanChoice}`);
+      resultDiv.textContent = `You Tied! ${humanChoice} = ${humanChoice}`;
     } else if (humanChoice === "Rock" && computerChoice === "Paper") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      resultDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
       computerScore++;
     } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      resultDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
       computerScore++;
     } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      resultDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
       computerScore++;
     } else {
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+      resultDiv.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
       humanScore++;
     }
   }
