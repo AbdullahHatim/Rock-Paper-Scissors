@@ -20,21 +20,24 @@ function getHumanChoice() {
   return choices[humanChoice];
 }
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === computerChoice) {
-    console.log(`You Tied! ${humanChoice} = ${humanChoice}`);
-  } else if (humanChoice === "Rock" && computerChoice === "Paper") {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-    computerScore++;
-  } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-    computerScore++;
-  } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-    computerScore++;
-  } else {
-    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-    humanScore++;
+function playRound(event, computerChoice) {
+  if (event.target.tagName == "BUTTON") {
+    humanChoice = event.target.getAttribute("data-selection");
+    if (humanChoice === computerChoice) {
+      console.log(`You Tied! ${humanChoice} = ${humanChoice}`);
+    } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      computerScore++;
+    } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      computerScore++;
+    } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      computerScore++;
+    } else {
+      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+      humanScore++;
+    }
   }
 }
 
@@ -61,4 +64,6 @@ function playGame() {
   console.log(message);
 }
 
+const buttons = document.querySelector(".buttons");
+buttons.addEventListener("click", playRound);
 // playGame();
