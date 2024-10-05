@@ -45,11 +45,11 @@ function playGame() {
   let computerSelection;
   let message;
 
-  for (let i = 0; i < 5; i++) {
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   humanSelection = getHumanChoice();
+  //   computerSelection = getComputerChoice();
+  //   playRound(humanSelection, computerSelection);
+  // }
 
   if (humanScore > computerScore) {
     message = `You Wins! with a score of ${humanScore} to ${computerScore}`;
@@ -61,4 +61,4 @@ function playGame() {
   console.log(message);
 }
 
-playGame();
+// playGame();

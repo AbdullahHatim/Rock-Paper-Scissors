@@ -1,0 +1,22 @@
+html {
+  font-size: 14pt;
+  font-family: cursive;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons > button {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
