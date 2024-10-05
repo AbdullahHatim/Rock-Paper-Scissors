@@ -36,22 +36,8 @@ function displayGameResultAfter(resultDiv, span, rounds) {
     } else {
       resultDiv.innerText = `Its a Tie!! with a score of ${computerScore} to ${humanScore}`;
     }
-
-    const buttons = document.querySelector(".buttons");
-    buttons.addEventListener(
-      "click",
-      (e) => {
-        if (e.target.tagName == "BUTTON") {
-          [humanScore, computerScore, span.innerText, resultDiv.innerText] = [
-            0,
-            0,
-            "0 - 0",
-            "",
-          ];
-        }
-      },
-      { once: true }
-    );
+    humanScore = 0;
+    computerScore = 0;
   }
 }
 
